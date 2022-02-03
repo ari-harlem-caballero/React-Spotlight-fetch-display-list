@@ -9,9 +9,8 @@ export default function BobsEpisodeList({ bobEpisode }) {
         episode,
         description
       }, i) => <div key={title + i}>
-        <h5>{title}</h5>
-        <p>{episode}</p>
-        <p>{holiday}</p>
+        <h3>{title}</h3>
+        <p>{holiday}, {episode}</p>
         <p>{description}</p>
       </div>)
     }

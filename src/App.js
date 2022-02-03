@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import { getBobsEpisodes } from './services/fetch-utils';
 import BobsEpisodeList from './Lists/BobsEpisodeList';
 import FoodList from './Lists/FoodList';
 import HolidayList from './Lists/HolidayList';
@@ -11,6 +12,16 @@ function App() {
   const [foods, setFoods] = useState([]);
   const [holidays, setHolidays] = useState([]);
   const [myPets, setMyPets] = useState([]);
+
+  async function fetchBobsEpisodes() {
+    const data = await getBobsEpisodes();
+
+    setBobEpisode(data);
+  }
+
+  useEffect(() => {
+    fetchBobsEpisodes();
+  }, []);
 
   return (
     <div className="App">
