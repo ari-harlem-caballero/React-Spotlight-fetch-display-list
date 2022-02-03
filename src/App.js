@@ -15,6 +15,8 @@ function App() {
   return (
     <div className="App">
       <h2>List of Bob&apos;s Burgers Holiday Episodes</h2>
+      <BobsEpisodeList bobEpisode={bobEpisode} />
+      
       <h2>List of Amazing Foods</h2>
       <h2>List of Holidays</h2>
       <h2>Rankings of My Pets</h2>
