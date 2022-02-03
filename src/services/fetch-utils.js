@@ -7,3 +7,11 @@ export async function getBobsEpisodes() {
     
   return checkError(response);
 }
+
+export async function getFoodList() {
+  const response = await client
+    .from('food')
+    .select();
+
+  return checkError(response);
+}

@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { getBobsEpisodes } from './services/fetch-utils';
+import { getBobsEpisodes, getFoodList } from './services/fetch-utils';
 import BobsEpisodeList from './Lists/BobsEpisodeList';
 import FoodList from './Lists/FoodList';
 import HolidayList from './Lists/HolidayList';
@@ -19,8 +19,15 @@ function App() {
     setBobEpisode(data);
   }
 
+  async function fetchFoodList() {
+    const data = await getFoodList();
+
+    setFoods(data);
+  }
+
   useEffect(() => {
     fetchBobsEpisodes();
+    fetchFoodList();
   }, []);
 
   return (
@@ -29,6 +36,8 @@ function App() {
       <BobsEpisodeList bobEpisode={bobEpisode} />
       
       <h2>List of Amazing Foods</h2>
+      <FoodList foods={foods} />
+
       <h2>List of Holidays</h2>
       <h2>Rankings of My Pets</h2>
     </div>
