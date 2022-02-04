@@ -15,3 +15,11 @@ export async function getFoodList() {
 
   return checkError(response);
 }
+
+export async function getHolidays() {
+  const response = await client
+    .from('holiday')
+    .select();
+  
+  return checkError(response);
+}
